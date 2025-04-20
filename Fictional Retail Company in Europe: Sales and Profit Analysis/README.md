@@ -1,1 +1,1 @@
-# Sals and Profit Dashboard
+# Sales and Profit Dashboard
