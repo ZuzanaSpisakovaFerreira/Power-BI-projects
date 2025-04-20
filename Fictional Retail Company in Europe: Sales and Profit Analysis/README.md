@@ -1,6 +1,6 @@
 # Sales and Profit Dashboard - Project Steps
 
-1.	**Uploaded Data** - Imported a Microsoft Excel workbook into Power BI. Ny data were already clean and reliable, so it wasn't necessary to use Power Query. If needed I can make some transformation later. Modelling was automatically generated with Power BI. The key relationship was established on Order ID column. 
+1.	**Uploaded Data** - Imported a Microsoft Excel workbook into Power BI. My data were already clean and reliable, so it wasn't necessary to use Power Query. If needed I can make some transformation later. Modelling was automatically generated with Power BI. The key relationship was established on Order ID column. 
 2.	**Created Hierarchy** (called Geography in ListOfOrders table) - Organized data into hierarchical structure for better analysis and visualization. Geography = Country » State » City 
 Important: If error message: File->Options and Settings -> Options -> Security -> Map and Filled Maps Visuals -> ENABLE
 3.	**Created Map**- using Geography in Location Field and to reinforced it with Latitude and Longitude fields.  Initially Latitude and Longitude were aggregated as an average but I change it to the Median. Since the latitude and longitude values represent cities in the dataset, using the Median provides a more accurate alignment when drilling up to state level in hierarchy
