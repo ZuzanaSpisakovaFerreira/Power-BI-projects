@@ -29,8 +29,7 @@ Formatted Markers -> Colors -> Conditional Formatting ->Gradient
 I applied Filter on All Pages - Order Date 
 Advanced Setting -> On or After 1/1/2011 AND Before 12/31/2013 (2 years period) -> Apply Filter -> FILTER REMOVED FOR NOW 
  
- 
-5.	**I created new Page  DASHBOARD ** Copy_Paste Page 1 and Page 2
+5.	**Created new Page  DASHBOARD ** Copy_Paste Page 1 and Page 2
 Scatter Chart -> Filter -> Legend -> Off
 Add Slicer -> Order Date
 Add Slicer -> Country - I will do a Bookmarks later change slicer to Segment
