@@ -1,5 +1,4 @@
-# Sales and Profit Dashboard
-** Project Steps**
+# Sales and Profit Dashboard - Project Steps
 
 1.	**Uploaded Data** - Imported a Microsoft Excel workbook into Power BI. Ny data were already clean and reliable, so it wasn't necessary to use Power Query. If needed I can make some transformation later. Modelling was automatically generated with Power BI. The key relationship was established on Order ID column. 
 2.	**Created Hierarchy** (called Geography in ListOfOrders table) - Organized data into hierarchical structure for better analysis and visualization. Geography = Country » State » City 
