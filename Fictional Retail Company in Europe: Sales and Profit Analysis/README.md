@@ -1,67 +1,50 @@
-# Sales and Profit Dashboard - Project Steps
+# Sales and Profit Dashboard
 
-1.	**Uploaded Data** - Imported a Microsoft Excel workbook into Power BI. My data were already clean and reliable, so it wasn't necessary to use Power Query. If needed I can make some transformation later. Modelling was automatically generated with Power BI. The key relationship was established on Order ID column. 
-2.	**Created Hierarchy** (called Geography in ListOfOrders table) - Organized data into hierarchical structure for better analysis and visualization. Geography = Country » State » City 
-Important: If error message: File->Options and Settings -> Options -> Security -> Map and Filled Maps Visuals -> ENABLE
-3.	**Created Map**- using Geography in Location Field and to reinforced it with Latitude and Longitude fields.  Initially Latitude and Longitude were aggregated as an average but I change it to the Median. Since the latitude and longitude values represent cities in the dataset, using the Median provides a more accurate alignment when drilling up to state level in hierarchy
-Bubble size-> Sum of Sales
-Calculated Measure: Profit Margin - Sum of Profit/Sum of Sales *100 (%)
- 
-Profit Margin = SUM(OrderBreakdown[Profit])/ SUM(OrderBreakdown[Sales])
- 
-Formatted Bubbles-> Colors-> Conditional Formatting -> Gradient style based on Profit Margin filed
- 
-Size of the Bubble:  tells me size of the sales
-Color of the Bubble: tells me how large or low is a Profit Margin for each of this Countries, States, Cities 
- 
-Example Analyzing:
-Netherlands - low Profit Margin as well low Sales 
-Ireland - low number of Sales and low Profit Margin
-Uk - large number of Sales and large Profit Margin
-Germany - darker than UK, is very good in both, Sales and Profits…
- 
- 
- 
-4.	**Created Scatter Chart** - X-axis Sum of Sales, Y-axis Sum of Profit from OrderBreakdown Table, for our level of Granularity I placed in Values field Customer Name 
- 
-Formatted Markers -> Colors -> Conditional Formatting ->Gradient
- 
-I applied Filter on All Pages - Order Date 
-Advanced Setting -> On or After 1/1/2011 AND Before 12/31/2013 (2 years period) -> Apply Filter -> FILTER REMOVED FOR NOW 
- 
-5.	**Created new Page  DASHBOARD ** Copy_Paste Page 1 and Page 2
-Scatter Chart -> Filter -> Legend -> Off
-Add Slicer -> Order Date
-Add Slicer -> Country - I will do a Bookmarks later change slicer to Segment
-In Segment -> Format -> Slizer Settings -> Tile
- 
-Scatter Chart Adjust Range
-y-Axis Min: Auto -> -4000, Max: Auto ->6000
-x-Axis Min: Auto ->0, Max: Auto -> 17000
- 
-6.	**Added Donut Chart** - we need one numerical variable and one categorical variable.
-Values -> Sum of Profit
-Legend -> Category
- 
-7.	**I created page to show the countries with best and worst performance based on Total Profit, can filtered by categories.**
-By choosing for y-axis Profit Margin, I would point out countries most efficient at generating profit. My intention was to show countries that brought in the most profit, that why  I used Total Profit Summary. 
- 
-8.	**Added Bookmarks**
-View - Bookmarks -> Add - Most profitable country based on total summary of profit
-View -> Bookmarks -> Add - Least profitable country based on total summary of profit
- 
-Insert Blank Button -> Action -> Bookmark-> choose Bookmark and filtering (text, color, tooltip) 
- 
-9.	**Organize my Dashboard**
-Visual -> Shadow ->On 
- 
-Add card -> with value Sum of Profit, 
-Formatting card
-Callout value ->Font 15 
-Category Label -> remove 
- 
-Formatting Donut chart:
-Lebel Contents - > Percent of Total
-Percentage decimal places -> 0
- 
-Format-> Edit interaction -> select filter on Donut chart, not to see history when selecting Country, State, City
+This Power BI dashboard provides an interactive analysis of sales and profitability data. It offer clear visualizations and insights into key performance indicators such as geographical sales distribution, profitability acoss customer segments and performance by product categories over a specific period (2011-2014).
+
+## Visualizations
+
+* **Geographic Map:** Displays sales and profit margin across diferent countries in Europ, with bubble size indicating sales volume and colour representing profitability. **The profit margin is calculated using the following DAX formula:**
+  ```dax
+  Profit Margin =
+  SUM(OrderBreakdown[Profit])/ SUM(OrderBreakdown[Sales])
+
+*  **Scatter Chart:** Ilustrates the relationship between the sum of sales (X-axis) and the sum of profit (Y-axis) for individual customers. The colour of the bubbles represents gradient based on profitability.
+
+
+*  **Donut Chart:**  Shows the **Sum of Profit by Category**. Each segment represents a different product category (Office Supplies, Technology, Furniture) and the size of the segments show the proportion of the total profit contributed by that category. The values and percentages of each category are also displayed
+
+*  **Slicer - Order Date:** Allows users to interactively filter the data by selecting a specific date range using a slider. The range shown is from 1. January 2011 to 31. December 2014.
+
+*  **Slicer - Segment:** Enables to filter the data based on customer segments: Consumer, Corporate and Home Office. Users can select one or multiple segments to focus their analysis.
+
+*  **Underperformance Button:** When clicked, this button filters the dashboard to display **three countries with the lowest profit margin**. This allows users to quickly identify the regions where profibility is weakest.
+
+*  **Top performers Button:**  Clicking this button filters the dashboard to show **three countries with the highest profit margin**. This enables users to focus on most profitable regions and understand the factors contribuiting to their sucess.
+
+
+  ## Example Insights and Key Findings from the Dahboard
+
+* **Top Performing Countries (Profit Margin Leaders):** Three countries withthe highest profit margins are the **UK**, **Germany** and **France**. These markets are our **most profitable** in terms of the percentage of revenue we keep as profit. Company should closely examine the factors contributing to their sucess. 
+
+ *  **Areas for Improvement (Lower Profit Margin):** The countries with the lowest profit margins are **Portugal**, **Sweden** and **Netherland**. Here we need to  investigate the reason behind lower profitability and explore pottential startegies for improvement. While the **Netherlands** have a decent sales volume, the profit generated from this sales is low.
+
+ *  **Geographic Picture:** The map provides a quick visual overview of sales volume. You can drill down to city level and this allows you quickly identify high-performing and low-performing regions, cities and even specific customers. For example map shows that UK and Germany have largest sale sbubbles , indicating high sales volume. The colour of the bubbles reveals profit margin. The netherlands, for example has a low profit margin. Ireland, opposite, has a low number of sales but high- profit margin. Is good to invetsigate the reason behind this.
+
+ *  **Key Customers:**  The scatter chart help us identify our most valuable customers, enabling us focus on strengthening those relationships. Customers in the upper right quadrant are high sales, high profit, while those in lowe left are low sales, low profit. 
+
+ *  **Top Product Categories (Profit Drivers):** The donut chart clearly indicates which product categories contribute the most to overall profit. We can examine for each country, city  which product is the biggest drivers to our earnings.
+
+ *  **Order Date and Segment:** They allow us to analyze trends over time  and compare the performance of different customer types.
+
+
+
+## Conclusions 
+
+This Sales and Profit dashboard is offering powerful and interactive tool for analyzing key aspects of  retail performance for our fictional company. Thanks to this dashboard , the company can analyze its strenght and weaknesses across different markets, customer segments and product lines. It help us to make a strategic desicions:
+
+* Focusing investments in the most profitable areas
+* Developing strategies to improve profitability in less sucessful regions and product lines
+* Understanding and taking care of our most valuable customers.
+
+Ultimately, this dashboard enables company to drive sustainable growth and overall profitability. 
